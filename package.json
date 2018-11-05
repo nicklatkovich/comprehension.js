@@ -5,10 +5,12 @@
 		"postinstall": "npm build",
 		"test": "nyc node_modules/.bin/mocha -r ts-node/register test/index.ts --exit"
 	},
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"author": "NickLatkovich",
 	"license": "MIT",
+	"repository": "github:nicklatkovich/comprehension.js",
 	"devDependencies": {
 		"@types/mocha": "^5.2.5",
 		"@types/node": "^10.12.2",
