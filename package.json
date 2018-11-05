@@ -1,7 +1,40 @@
 {
 	"name": "comprehension",
-	"version": "1.0.4",
-	"main": "index.js",
+	"scripts": {
+		"build": "rm -r dist && npx tsc",
+		"postinstall": "npm build",
+		"test": "nyc node_modules/.bin/mocha -r ts-node/register test/index.ts --exit"
+	},
+	"version": "1.0.6",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"author": "NickLatkovich",
-	"license": "MIT"
+	"license": "MIT",
+	"repository": "github:nicklatkovich/comprehension.js",
+	"devDependencies": {
+		"@types/mocha": "^5.2.5",
+		"@types/node": "^10.12.2",
+		"mocha": "^5.2.0",
+		"nyc": "^13.1.0",
+		"source-map-support": "^0.5.9",
+		"ts-node": "^7.0.1",
+		"typescript": "^3.1.6"
+	},
+	"nyc": {
+		"include": [
+			"src/**/*.ts"
+		],
+		"extension": [
+			".ts"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"reporter": [
+			"text-summary",
+			"html"
+		],
+		"sourceMap": true,
+		"instrument": true
+	}
 }
